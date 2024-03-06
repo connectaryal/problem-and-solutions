@@ -1,27 +1,24 @@
 package MadhavArray;
 
 public class MadhavArray {
-  public static int isMadhavArray(int[] a) {
-    int len = a.length;
+  public static int sumFactor(int[] a) {
     int sum = 0;
-    int n = 1;
+    int totalNo = 0;
 
-    while (n * (n + 1) / 2 <= len) {
-      sum = 0;
-      for (int i = n * (n + 1) / 2 - 1; i < len; i++) {
-        sum += a[i];
-        if (sum != n * (n + 1) / 2 - 1) {
-          return 0;
-        }
-      }
-      n++;
+    for (int i = 0; i < a.length; i++) {
+      sum += a[i];
     }
-    return 1;
 
+    for (int j = 0; j < a.length; j++) {
+      if (a[j] == sum) {
+        totalNo++;
+      }
+    }
+    return totalNo;
   }
 
   public static void main(String[] args) {
-    int[] a = { 2, 1, 1 };
-    System.out.println(isMadhavArray(a));
+    int[] a = { -1, 1, 1 };
+    System.out.println(sumFactor(a));
   }
 }
